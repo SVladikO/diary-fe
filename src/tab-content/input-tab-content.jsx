@@ -1,22 +1,32 @@
-import './input-tab-content.css';
+import {
+    Wrapper,
+    MoodWrapper,
+    GoodMood,
+    BadMood,
+    NeutralMood,
+    Textarea,
+    FirstRowInputs,
+    InputInline,
+    PrimaryButton
+} from './input-tab-content.style'
 
 const InputTabContent = () => {
     return (
-        <div className="Wrapper">
-            <div className="FirstRowInputs">
-                <input type="text" placeholder='10/03/2026' className="InputInline"/>
-                <input type="text" placeholder='Location' className="InputInline"/>
-                <div className='MoodCircleWrapper'>
-                    <div className='MoodCircle MoodCircleGood'></div>
-                    <div className='MoodCircle MoodCircleBad'></div>
-                    <div className='MoodCircle MoodCircleNeutral'></div>
-                </div>
-                <input type="text" placeholder='Key' className="InputInline"/>
-            </div>
-            <textarea rows={5} placeholder='Diary' className='InputBlock'/>
-            <textarea rows={5} placeholder='GPT conclusion' className='InputBlock'/>
-            <button className='PrimaryButton'>Write</button>
-        </div>
+        <Wrapper>
+            <FirstRowInputs>
+                <InputInline type="text" placeholder='10/03/2026'/>
+                <InputInline type="text" placeholder='Location'/>
+                <MoodWrapper>
+                    <GoodMood/>
+                    <BadMood/>
+                    <NeutralMood/>
+                </MoodWrapper>
+                <InputInline type="text" placeholder='Key'/>
+            </FirstRowInputs>
+            <Textarea rows={5} placeholder='Diary'/>
+            <Textarea rows={5} placeholder='GPT conclusion'/>
+            <PrimaryButton>Write</PrimaryButton>
+        </Wrapper>
     )
 }
 
