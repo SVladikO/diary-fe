@@ -1,0 +1,18 @@
+.Wrapper {
+    display: flex;
+    align-items: start;
+}
+
+.Header {
+    border: solid 2px red;
+    display: flex;
+    justify-content: space-between;
+}
+.LeftHeader {}
+.RightHeader {}
+.Date {}
+.Time {}
+.Day {}
+.Mood {}
+.City {}
+.Text {}

@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import {TabType} from "./types.js";
+
+import Tabs from "./components/tabs/tabs.jsx";
+
+import InputTabContent from "./tab-content/input-tab-content";
+import OutputTabContent from "./tab-content/output-tab-content";
+import {Wrapper} from "./App.style";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [selectedTab, setSelectedTab] = useState(TabType.INPUT)
+
+    return (
+        <Wrapper>
+            <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+            {selectedTab === TabType.INPUT && <InputTabContent/>}
+            {selectedTab === TabType.OUTPUT && <OutputTabContent/>}
+        </Wrapper>
+    );
 }
 
 export default App;
