@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 400px;
-    padding: 10px;
+    flex-direction: row;
+    gap: 10px;
 `

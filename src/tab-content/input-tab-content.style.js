@@ -48,10 +48,7 @@ export const Textarea = styled.textarea`
     display: block;
     width: 100%;
 `;
-export const PrimaryButton = styled.button`
-    display: block;
-    background: blue;
-    height: 30px;
-    width: 60px;
-    color: white;
+
+export const SuccessWrapper = styled.div`
+    width: 100%;
 `;

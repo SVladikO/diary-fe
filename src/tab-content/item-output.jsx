@@ -1,23 +1,26 @@
 import {Wrapper, Header, Text} from "./item-output.style";
+import {getDateInFormat, getTimeInFormat} from "../date.utils";
 
-const ItemOutput = () => {
+const def = {
+    time: 1767646652139,
+    location: 'Irpin',
+    mood: 'Good',
+    text: 'Some text default',
+    gpt_text: 'Some text default',
+}
+const ItemOutput = ({day = def}) => {
     return (
         <Wrapper>
             <Header>
                 <div>
-                    <div>12/02/2024</div>
-                    <div>10:20</div>
-                    <div>Tue</div>
-                    <div>GOOD</div>
+                    <div>{getDateInFormat(day.time)}</div>
+                    <div>{getTimeInFormat(day.time)}</div>
+                    <div>Day</div>
+                    <div>{day.mood}</div>
                 </div>
-                <div>
-                    <div className='City'>Irpin</div>
-                </div>
+                <div>{day.location}</div>
             </Header>
-            <Text>
-                Согодні гарно відсвяткував ДН. Мен стільки то. Там тадам. То сьо пять шість 7 8. Та й таке. Согодні гар
-                но відсвяткував ДН. Мен стільки то. Там тадам. То сьо пять шість 7 8. Та й таке
-            </Text>
+            <Text>{day.text}</Text>
         </Wrapper>
     )
 }

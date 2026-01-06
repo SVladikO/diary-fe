@@ -1,0 +1,1 @@
+export const fixText = (text) => text.replaceAll("'", "`")
