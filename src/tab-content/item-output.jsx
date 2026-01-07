@@ -1,5 +1,8 @@
-import {Wrapper, Header, Text} from "./item-output.style";
+import {Wrapper, Header, Text, GptText, GptTextButton} from "./item-output.style";
 import {getDateInFormat, getTimeInFormat} from "../date.utils";
+import {GoodMood, BadMood, NeutralMood} from "../components/mood/mood.style.js";
+import {MoodType} from "../types";
+import {useState} from "react";
 
 const def = {
     time: 1767646652139,
@@ -9,6 +12,7 @@ const def = {
     gpt_text: 'Some text default',
 }
 const ItemOutput = ({day = def}) => {
+    const [showGPT, setShowGPT] = useState(false);
     return (
         <Wrapper>
             <Header>
@@ -16,11 +20,20 @@ const ItemOutput = ({day = def}) => {
                     <div>{getDateInFormat(day.time)}</div>
                     <div>{getTimeInFormat(day.time)}</div>
                     <div>Day</div>
-                    <div>{day.mood}</div>
+                    {day.mood === MoodType.GOOD && <GoodMood/>}
+                    {day.mood === MoodType.BAD && <BadMood/>}
+                    {day.mood === MoodType.NEUTRAL && <NeutralMood/>}
                 </div>
-                <div>{day.location}</div>
+                <div>{day.location || 'No location'}</div>
             </Header>
-            <Text>{day.text}</Text>
+            <Text>{day.text || 'No text. Only mood mark'}</Text>
+            {day.gpt_text && (
+                <GptTextButton onClick={() => setShowGPT(!showGPT)}>
+                    {showGPT ? 'Hide' : 'Show'} GPT text analyse
+                </GptTextButton>
+            )
+            }
+            {showGPT && <GptText>{day.gpt_text}</GptText>}
         </Wrapper>
     )
 }

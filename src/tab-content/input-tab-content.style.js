@@ -26,24 +26,6 @@ export const MoodWrapper = styled.div`
     flex-direction: row;
     gap: 5px;
 `;
-const MoodCircle = css`
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-`;
-export const GoodMood = styled.div`
-    ${MoodCircle};    
-    background: green;
-`;
-export const BadMood = styled.div`
-    ${MoodCircle}; 
-    background: red;
-`;
-export const NeutralMood = styled.div`
-    background: darkgrey;
-    ${MoodCircle};
-`;
 export const Textarea = styled.textarea`
     display: block;
     width: 100%;
